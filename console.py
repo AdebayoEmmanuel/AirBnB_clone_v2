@@ -137,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[arg_class](**kwarg)
         storage.save()
         print(new_instance.id)
-        storage.save()
+        print(new_instance)
 
     def help_create(self):
         """ Help information for the create method """
