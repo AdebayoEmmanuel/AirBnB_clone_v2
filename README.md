@@ -156,7 +156,7 @@ This new feature will run the command on the class with the provided parameters
 
 ```
 ###### Example: Create State
-(hbnb) create State name=Lagos
+(hbnb) create State name="Lagos"
 
 This will create a State object with name attribute set to Lagos
 ```
