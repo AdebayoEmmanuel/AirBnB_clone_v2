@@ -143,16 +143,23 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 
 ## Help wanted!
 I added a functionality to [console.py](./console.py) to collect named parameter using this syntax:
-'''bash
+
+
+```bash
 <command> <class> <param1=value1> <param2=value2>
-'''
+```
+
+
 This new feature will run the command on the class with the provided parameters 
-'''
+
+
+
+```
 ###### Example: Create State
 (hbnb) create State name=Lagos
 
 This will create a State object with name attribute set to Lagos
-'''
+```
 
 **<span style="color:red">!!!ISSUE</span>**
 	* The object gets created but never gets saved in file.json
