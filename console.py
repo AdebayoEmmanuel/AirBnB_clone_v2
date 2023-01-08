@@ -115,6 +115,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
+        if not args:
+            print("** class name missing **")
+            return
         arg_list = args.split()
         arg_class = arg_list[0]
         arg_params = arg_list[1:]
@@ -128,10 +131,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 v = int(v) #parse int
             kwarg[k] = v
-        if len(arg_list) < 1:
-            print("** class name missing **")
-            return
-        elif arg_class not in HBNBCommand.classes:
+        #elif len(arg_list) < 1:
+            #print("** class name missing **")
+            #return
+        if arg_class not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
         new_instance = HBNBCommand.classes[arg_class](**kwarg)
