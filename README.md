@@ -163,8 +163,8 @@ This will create a State object with name attribute set to Lagos
 
 #                                     ISSUE 
 
-i. The object gets created but never gets saved in file.json
-ii. I confirm that the object is actually created by printing the string representation and ID
-iii. I have included a call trace (here)[./trace.txt]
+1. The object gets created but never gets saved in file.json
+2. I confirm that the object is actually created by printing the string representation and ID
+3. I have included a call trace (here)[./trace.txt]
 
 # Any help is welcome.
