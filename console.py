@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+import trace
 
 
 class HBNBCommand(cmd.Cmd):
@@ -336,5 +337,14 @@ class HBNBCommand(cmd.Cmd):
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
+    def do_trace(self, line):
+        tracer = trace.Trace()
+        tracer.runfunc(self.cmdloop)
+        tracer.results().write_results(show_missing=True)
+
+
+
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
+    
