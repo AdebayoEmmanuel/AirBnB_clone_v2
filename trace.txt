@@ -1,0 +1,177 @@
+(hbnb) create State name="Lagos"
+cmd.py(137):                 line = self.precmd(line)
+ --- modulename: console, funcname: precmd
+console.py(45):         _cmd = _cls = _id = _args = ''  # initialize line elements
+console.py(48):         if not ('.' in line and '(' in line and ')' in line):
+console.py(49):             return line
+cmd.py(138):                 stop = self.onecmd(line)
+ --- modulename: cmd, funcname: onecmd
+cmd.py(202):         cmd, arg, line = self.parseline(line)
+ --- modulename: cmd, funcname: parseline
+cmd.py(177):         line = line.strip()
+cmd.py(178):         if not line:
+cmd.py(180):         elif line[0] == '?':
+cmd.py(182):         elif line[0] == '!':
+cmd.py(187):         i, n = 0, len(line)
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(188):         while i < n and line[i] in self.identchars: i = i+1
+cmd.py(189):         cmd, arg = line[:i], line[i:].strip()
+cmd.py(190):         return cmd, arg, line
+cmd.py(203):         if not line:
+cmd.py(205):         if cmd is None:
+cmd.py(207):         self.lastcmd = line
+cmd.py(208):         if line == 'EOF' :
+cmd.py(210):         if cmd == '':
+cmd.py(213):             try:
+cmd.py(214):                 func = getattr(self, 'do_' + cmd)
+cmd.py(217):             return func(arg)
+ --- modulename: console, funcname: do_create
+console.py(119):         if not args:
+console.py(122):         arg_list = args.split()
+console.py(123):         arg_class = arg_list[0]
+console.py(124):         arg_params = arg_list[1:]
+console.py(125):         kwarg = {} #empty dict to hold name and value to be passed as kwarg
+console.py(126):         for param in arg_params:
+console.py(127):             k, v = param.split("=")
+console.py(128):             if v[0] == '"':
+console.py(129):                 v.replace('"', '\"') #parse str val
+console.py(134):             kwarg[k] = v
+console.py(126):         for param in arg_params:
+console.py(138):         if arg_class not in HBNBCommand.classes:
+console.py(141):         new_instance = HBNBCommand.classes[arg_class](**kwarg)
+ --- modulename: base_model, funcname: __init__
+base_model.py(11):         if kwargs:
+base_model.py(12):             for key, value in kwargs.items():
+base_model.py(13):                 if key == "created_at" or key == "updated_at":
+base_model.py(15):                 if key != "__class__":
+base_model.py(16):                     setattr(self, key, value)
+base_model.py(12):             for key, value in kwargs.items():
+base_model.py(17):             if "id" not in kwargs:
+base_model.py(18):                 self.id = str(uuid.uuid4())
+ --- modulename: uuid, funcname: uuid4
+uuid.py(782):     return UUID(bytes=os.urandom(16), version=4)
+ --- modulename: uuid, funcname: __init__
+uuid.py(164):         if [hex, bytes, bytes_le, fields, int].count(None) != 4:
+uuid.py(167):         if hex is not None:
+uuid.py(173):         if bytes_le is not None:
+uuid.py(178):         if bytes is not None:
+uuid.py(179):             if len(bytes) != 16:
+uuid.py(181):             assert isinstance(bytes, bytes_), repr(bytes)
+uuid.py(182):             int = int_.from_bytes(bytes, byteorder='big')
+uuid.py(183):         if fields is not None:
+uuid.py(203):         if int is not None:
+uuid.py(204):             if not 0 <= int < 1<<128:
+uuid.py(206):         if version is not None:
+uuid.py(207):             if not 1 <= version <= 5:
+uuid.py(210):             int &= ~(0xc000 << 48)
+uuid.py(211):             int |= 0x8000 << 48
+uuid.py(213):             int &= ~(0xf000 << 64)
+uuid.py(214):             int |= version << 76
+uuid.py(215):         object.__setattr__(self, 'int', int)
+uuid.py(216):         object.__setattr__(self, 'is_safe', is_safe)
+ --- modulename: uuid, funcname: __str__
+uuid.py(274):         hex = '%032x' % self.int
+uuid.py(275):         return '%s-%s-%s-%s-%s' % (
+uuid.py(276):             hex[:8], hex[8:12], hex[12:16], hex[16:20], hex[20:])
+uuid.py(275):         return '%s-%s-%s-%s-%s' % (
+base_model.py(19):             if "created_at" not in kwargs:
+base_model.py(20):                 self.created_at = datetime.now()
+base_model.py(21):             if "updated_at" not in kwargs:
+base_model.py(22):                 self.updated_at = datetime.now()
+console.py(142):         storage.save()
+ --- modulename: file_storage, funcname: save
+file_storage.py(21):         with open(FileStorage.__file_path, 'w') as f:
+ --- modulename: _bootlocale, funcname: getpreferredencoding
+_bootlocale.py(34):             assert not do_setlocale
+_bootlocale.py(35):             if sys.flags.utf8_mode:
+_bootlocale.py(37):             result = _locale.nl_langinfo(_locale.CODESET)
+_bootlocale.py(38):             if not result and sys.platform == 'darwin':
+_bootlocale.py(46):             return result
+ --- modulename: codecs, funcname: __init__
+codecs.py(194):         self.errors = errors
+codecs.py(195):         self.buffer = ""
+file_storage.py(22):             temp = {}
+file_storage.py(23):             temp.update(FileStorage.__objects)
+file_storage.py(24):             for key, val in temp.items():
+file_storage.py(26):             json.dump(temp, f)
+ --- modulename: __init__, funcname: dump
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(166):         check_circular and allow_nan and
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(166):         check_circular and allow_nan and
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(167):         cls is None and indent is None and separators is None and
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(167):         cls is None and indent is None and separators is None and
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(167):         cls is None and indent is None and separators is None and
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(168):         default is None and not sort_keys and not kw):
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(168):         default is None and not sort_keys and not kw):
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(168):         default is None and not sort_keys and not kw):
+__init__.py(165):     if (not skipkeys and ensure_ascii and
+__init__.py(169):         iterable = _default_encoder.iterencode(obj)
+ --- modulename: encoder, funcname: iterencode
+encoder.py(214):         if self.check_circular:
+encoder.py(215):             markers = {}
+encoder.py(218):         if self.ensure_ascii:
+encoder.py(219):             _encoder = encode_basestring_ascii
+encoder.py(223):         def floatstr(o, allow_nan=self.allow_nan,
+encoder.py(224):                 _repr=float.__repr__, _inf=INFINITY, _neginf=-INFINITY):
+encoder.py(223):         def floatstr(o, allow_nan=self.allow_nan,
+encoder.py(246):         if (_one_shot and c_make_encoder is not None
+encoder.py(253):             _iterencode = _make_iterencode(
+encoder.py(254):                 markers, self.default, _encoder, self.indent, floatstr,
+encoder.py(255):                 self.key_separator, self.item_separator, self.sort_keys,
+encoder.py(256):                 self.skipkeys, _one_shot)
+encoder.py(253):             _iterencode = _make_iterencode(
+ --- modulename: encoder, funcname: _make_iterencode
+encoder.py(274):     if _indent is not None and not isinstance(_indent, str):
+encoder.py(277):     def _iterencode_list(lst, _current_indent_level):
+encoder.py(333):     def _iterencode_dict(dct, _current_indent_level):
+encoder.py(413):     def _iterencode(o, _current_indent_level):
+encoder.py(442):     return _iterencode
+encoder.py(257):         return _iterencode(o, 0)
+__init__.py(179):     for chunk in iterable:
+ --- modulename: encoder, funcname: _iterencode
+encoder.py(414):         if isinstance(o, str):
+encoder.py(416):         elif o is None:
+encoder.py(418):         elif o is True:
+encoder.py(420):         elif o is False:
+encoder.py(422):         elif isinstance(o, int):
+encoder.py(425):         elif isinstance(o, float):
+encoder.py(428):         elif isinstance(o, (list, tuple)):
+encoder.py(430):         elif isinstance(o, dict):
+encoder.py(431):             yield from _iterencode_dict(o, _current_indent_level)
+ --- modulename: encoder, funcname: _iterencode_dict
+encoder.py(334):         if not dct:
+encoder.py(335):             yield '{}'
+__init__.py(180):         fp.write(chunk)
+__init__.py(179):     for chunk in iterable:
+ --- modulename: encoder, funcname: _iterencode
+ --- modulename: encoder, funcname: _iterencode_dict
+encoder.py(336):             return
+console.py(143):         print(new_instance.id)
+4884b723-575c-47ce-ada3-9e7355e07c9d
+console.py(144):         print(new_instance)
+ --- modulename: base_model, funcname: __str__
+base_model.py(29):         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
+base_model.py(30):         return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+[State] (4884b723-575c-47ce-ada3-9e7355e07c9d) {'name': '"Lagos"', 'id': '4884b723-575c-47ce-ada3-9e7355e07c9d', 'created_at': datetime.datetime(2023, 1, 8, 9, 19, 50, 716005), 'updated_at': datetime.datetime(2023, 1, 8, 9, 19, 50, 716115)}
+cmd.py(139):                 stop = self.postcmd(stop, line)
+ --- modulename: console, funcname: postcmd
+console.py(92):         if not sys.__stdin__.isatty():
+console.py(94):         return stop
+cmd.py(120):             while not stop:
+cmd.py(121):                 if self.cmdqueue:
+cmd.py(124):                     if self.use_rawinput:
+cmd.py(125):                         try:
+cmd.py(126):                             line = input(self.prompt)
+(hbnb)
