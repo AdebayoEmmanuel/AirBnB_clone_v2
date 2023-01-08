@@ -140,3 +140,23 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'name': 'Fred the Frog', 'age': 9, 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
 <br>
+
+## Help wanted!
+I added a functionality to [console.py](./console.py) to collect named parameter using this syntax:
+'''bash
+<command> <class> <param1=value1> <param2=value2>
+'''
+This new feature will run the command on the class with the provided parameters 
+'''
+###### Example: Create State
+(hbnb) create State name=Lagos
+
+This will create a State object with name attribute set to Lagos
+'''
+
+**<span style="color:red">!!!ISSUE</span>**
+	* The object gets created but never gets saved in file.json
+	* I confirm that the object is actually created by printing the string representation and ID
+	* I have included a call trace (here)[./trace.txt]
+
+# Any help is welcome.
