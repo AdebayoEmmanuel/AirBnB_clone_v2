@@ -161,10 +161,10 @@ This new feature will run the command on the class with the provided parameters
 This will create a State object with name attribute set to Lagos
 ```
 
-**!!!ISSUE**
+#                                     ISSUE 
 
-	* The object gets created but never gets saved in file.json
-	* I confirm that the object is actually created by printing the string representation and ID
-	* I have included a call trace (here)[./trace.txt]
+i. The object gets created but never gets saved in file.json
+ii. I confirm that the object is actually created by printing the string representation and ID
+iii. I have included a call trace (here)[./trace.txt]
 
 # Any help is welcome.
