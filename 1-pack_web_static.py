@@ -1,10 +1,7 @@
 #!/usr/bin/python3
+""" create web static zip"""
 from fabric.api import local, settings
 from datetime import datetime
-
-'''
-create webstatic zip
-'''
 
 
 def do_pack():
