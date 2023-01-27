@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def do_pack():
-    ''' Create the versions folder if it doesn't exist '''
+    """ Create the versions folder if it doesn't exist """
     local("mkdir -p versions")
 
     # Get the current date and time
