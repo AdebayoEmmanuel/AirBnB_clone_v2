@@ -2,8 +2,13 @@
 from fabric.api import local, settings
 from datetime import datetime
 
+'''
+create webstatic zip
+'''
+
+
 def do_pack():
-    # Create the versions folder if it doesn't exist
+    ''' Create the versions folder if it doesn't exist '''
     local("mkdir -p versions")
 
     # Get the current date and time
