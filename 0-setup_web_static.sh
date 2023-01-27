@@ -12,7 +12,8 @@ fi
 # creates neccessary dirs if they don't exist
 if [ ! -d "/data" ]; then
 	sudo mkdir /data
-	sudo chown -R ubuntu:ubuntu /data
+	sudo chown -R ubuntu:ubuntu /data/
+	sudo chmod -R 755 /data/
 fi
 
 if [ ! -d "/data/web_static" ]; then
