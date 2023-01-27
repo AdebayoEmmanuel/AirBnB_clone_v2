@@ -36,7 +36,7 @@ sudo touch /data/web_static/releases/test/index.html
 echo '<html> I am serving... </html>' > /data/web_static/releases/test/index.html
 
 # create required symlink
-if [ L "/data/web_static/current" ]; then
+if [ -L "/data/web_static/current" ]; then
 	sudo rm /data/web_static/current
 fi
 sudo ln -s /data/web_static/releases/test/ /data/web_static/current
